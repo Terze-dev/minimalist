@@ -16,9 +16,10 @@ class CreateItemsTable extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->unsignedBigInteger('location_id');
             $table->string('name')->unique();
-            
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('location_id');
+            $table->timestamp('put_in_recycling_bin')->nullable();
         });
     }
 
