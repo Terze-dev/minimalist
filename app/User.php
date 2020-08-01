@@ -36,4 +36,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function items() {
+        return $this->hasMany('App\Item')->where('put_in_recycling_bin', null);
+    }
+
+    public function locations() {
+        return $this->hasMany('App\Location');
+    }
 }
